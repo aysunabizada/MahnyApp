@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 export const Cntx = createContext();
 
 function DataContext({ children }) {
-    const [openAside, setOpenAside] = useState(false)
+    const [openAside, setOpenAside] = useState(true)
     
     const obj = {
         setOpenAside,
