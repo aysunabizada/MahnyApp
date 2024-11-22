@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import { IoPlayCircleSharp } from "react-icons/io5";
 
@@ -13,8 +13,13 @@ export default function SliderRecommend() {
                 slidesPerView={1}
                 spaceBetween={10}
                 navigation={true}
-                modules={[Navigation]}
+                modules={[Navigation, Autoplay]}
                 loop={true}
+                autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false
+                }}
+                speed={3000}
                 breakpoints={{
                     '@0.00': {
                         slidesPerView: 1,
