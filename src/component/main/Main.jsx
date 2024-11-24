@@ -1,87 +1,11 @@
-import { Link } from "react-router-dom"
-import { FaCompactDisc } from "react-icons/fa";
-import { MdLibraryMusic, MdOutlineLineWeight, MdVideoLibrary } from "react-icons/md";
-import { BsBarChartFill } from "react-icons/bs";
-import { FaRadio, FaHeart, FaHeadphonesSimple, FaPeopleGroup } from "react-icons/fa6";
-import { IoAlbums } from "react-icons/io5";
-import { useContext, useEffect } from "react";
-import { Cntx } from "../../context/DataContext";
 import Slider from "./Silder";
 import SliderRecommend from "./SliderRecommend";
 import ticket from '../../assets/img/ticket.png';
 import Artists from "./Artists";
 
 function Main() {
-    const { openAside, setOpenAside } = useContext(Cntx);
-
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth >= 768 && window.innerWidth < 1024) {
-                setOpenAside(false);
-            } else if (window.innerWidth >= 1024) {
-                setOpenAside(true);
-            }
-        };
-
-        handleResize();
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, [setOpenAside]);
-
     return (
-        <main className={`bg-[#101010] relative w-full text-white`}>
-            <aside
-                className={`${openAside ? "translate-x-0" : "-translate-x-full"} 
-                fixed top-[65px] left-0 w-[250px] md:w-[280px] h-screen overflow-y-auto pb-[100px] px-10 py-5 
-                dark:bg-[#141414] dark:text-gray-800 z-50 shadow-md shadow-[#222] 
-                transition-transform duration-300`}
-            >
-                <nav className="space-y-8 text-sm">
-                    <div className="muzieknootjes">
-                        <div className="noot-1">&#9835; &#9833;</div>
-                        <div className="noot-2">&#9833;</div>
-                        <div className="noot-3">&#9839; &#9834;</div>
-                        <div className="noot-4">&#9834;</div>
-                    </div>
-                    <div className="space-y-3">
-                        <h2 className="text-sm font-semibold tracking-widest mb-5 dark:text-gray-600">
-                            Browse
-                        </h2>
-                        <div className="flex flex-col space-y-1">
-                            <Link className="text-[#EDEDED] p-2.5 font-semibold flex items-center gap-4 hover:text-[#950101] transition-all rounded-md hover:bg-[#d4dce40d]"><FaCompactDisc className="text-lg" />Discover</Link>
-                            <Link className="text-[#EDEDED] p-2.5 font-semibold flex items-center gap-4 hover:text-[#950101] transition-all rounded-md hover:bg-[#d4dce40d]"><MdLibraryMusic className="text-lg" />Browse</Link>
-                            <Link className="text-[#EDEDED] p-2.5 font-semibold flex items-center gap-4 hover:text-[#950101] transition-all rounded-md hover:bg-[#d4dce40d]"><MdOutlineLineWeight className="text-lg" />New Release</Link>
-                            <Link className="text-[#EDEDED] p-2.5 font-semibold flex items-center gap-4 hover:text-[#950101] transition-all rounded-md hover:bg-[#d4dce40d]"><BsBarChartFill className="text-lg" />Charts</Link>
-                            <Link className="text-[#EDEDED] p-2.5 font-semibold flex items-center gap-4 hover:text-[#950101] transition-all rounded-md hover:bg-[#d4dce40d]"><FaRadio className="text-lg" />Radio</Link>
-                        </div>
-                    </div> <br />
-                    <div className="muzieknootjes">
-                        <div className="noot-1">&#9835; &#9833;</div>
-                        <div className="noot-2">&#9833;</div>
-                        <div className="noot-3">&#9839; &#9834;</div>
-                        <div className="noot-4">&#9834;</div>
-                    </div>
-                    <div className="space-y-3">
-                        <h2 className="text-sm font-semibold tracking-widest mb-5 dark:text-gray-600">
-                            Library
-                        </h2>
-                        <div className="flex flex-col space-y-1">
-                            <Link className="text-[#EDEDED] p-2.5 font-semibold flex items-center gap-4 hover:text-[#950101] transition-all rounded-md hover:bg-[#d4dce40d]"><MdVideoLibrary className="text-lg" />Playlist</Link>
-                            <Link className="text-[#EDEDED] p-2.5 font-semibold flex items-center gap-4 hover:text-[#950101] transition-all rounded-md hover:bg-[#d4dce40d]"><FaHeadphonesSimple className="text-lg" />Stream</Link>
-                            <Link className="text-[#EDEDED] p-2.5 font-semibold flex items-center gap-4 hover:text-[#950101] transition-all rounded-md hover:bg-[#d4dce40d]"><FaHeart className="text-lg" />Likes</Link>
-                            <Link className="text-[#EDEDED] p-2.5 font-semibold flex items-center gap-4 hover:text-[#950101] transition-all rounded-md hover:bg-[#d4dce40d]"><IoAlbums className="text-lg" />Albums</Link>
-                            <Link className="text-[#EDEDED] p-2.5 font-semibold flex items-center gap-4 hover:text-[#950101] transition-all rounded-md hover:bg-[#d4dce40d]"><FaPeopleGroup className="text-lg" />Artist</Link>
-                        </div>
-                    </div>
-                    <ul className="text-gray-700">
-                        <li>The soundtrack to your soul begins here.</li> <br />
-                        <li>By Mimi & Aysu</li>
-                    </ul>
-                </nav>
-            </aside>
+        <main className='bg-[#101010] relative w-full text-white'>
             <div className="sm:ml-[22%] mx-[5%] pt-[7rem]">
                 <h2 className="text-2xl doto">Featured</h2>
                 <Slider />
