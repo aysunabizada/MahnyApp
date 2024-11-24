@@ -5,6 +5,9 @@ import AdminLayout from "./admin/AdminLayout";
 import Products from "./admin/Products";
 import Category from "./admin/Category";
 import Subcategory from "./admin/Subcategory";
+import Login from "./admin/Login";
+import Signup from "./admin/Signup";
+import ResetPass from "./admin/ResetPass";
 
 function App() {
     return (
@@ -18,6 +21,9 @@ function App() {
             <Route path="/" element={<Layout />} >
                 <Route path="/" element={<Main />} />
             </Route>
+            <Route path="/login"  element={<Login />}/>
+            <Route path="/signup"  element={<Signup />}/>
+            <Route path="/resetPassword"  element={<ResetPass />}/>
         </Routes>
     )
 }
